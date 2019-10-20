@@ -1,0 +1,19 @@
+@import './layout';
+@import './menu';
+@import './courses.scss';
+@import './messages.scss';
+@import './cards.scss';
+@import './profile.scss';
+
+h2 {
+  text-align: center;
+}
+
+img .img-profile {
+  width: 80%;
+}
+
+.card {
+  background-color: #47807B;
+  display: inline-block;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>IIC2513 - ADÓPTAME</title>
+    <% if (env !== 'development') { %>
+      <link rel="stylesheet" href="<%= assetPath('app.css') %>">
+    <% } %>
+  </head>
+  <body>
+    <div class="navbar">
+        <a id="nav-logo" href="/">
+          <img src="https://telegram-stickers.github.io/public/stickers/animals/<%= Math.floor((Math.random() * 20) + 1) %>.png" alt="adopta">.ME
+        </a>
+        <a href="/">About Us</a>
+        <% if (currentUser) { %>
+          <a href="/usuario">Usuarios</a>
+          <a href="/mascota">Adoptar</a>
+          <a href="/hogares">Hogares</a>
+          <a href="/mensaje">Mensajes</a>
+          <div class="dropdown">
+            <a id="end" href="/usuario">
+              Hola,
+              <p id="end-username"><%= currentUser.username %></p>!
+            </a>
+            <div class="dropdown-content">
+              <a id="end" href="/usuario">
+                Hola,
+                <p id="end-username"><%= currentUser.username %></p>!
+              </a>
+              <a href="/usuario/<%- currentUser.id %>/profile">
+                Mi perfil
+              </a>
+              <a href="/usuario/<%- currentUser.id %>/notifications">
+                Notificaciones
+              </a>
+              <a href="#">
+                  <form id="logout-button" action="<%= destroySessionPath %>" method="post">
+                    <input type="hidden" name="_method" value="delete" />
+                    <input class="form-control" type="submit" value="Cerrar sesión"/>
+                  </form>
+              </a>
+            </div>
+          </div>
+        <% } else { %>
+          <a id="end" href="/usuario/new">Register</a>
+          <a id="end" href="<%= newSessionPath %>">Login</a>
+        <% } %>
+    </div>
+    <div class="container">
+      <%- body %>
+      <script src="<%= assetPath('app.js') %>"></script>
+    </div>
+  </body>
+
+</html>

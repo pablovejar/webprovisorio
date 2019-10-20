@@ -1,0 +1,23 @@
+<h2>Mascotas</h2>
+<% if (!petList.length) { %>
+  <p>No hay resultados</p>
+<% } else { %>
+
+  <% petList.forEach((mascota) => { %>
+    <div id="container">
+      <div">
+          <%- mascota.name %>
+          <%- mascota.type %>
+          <%- mascota.age %>
+          <%- mascota.country %>
+          <%- mascota.gender%>
+          <%- mascota.weight %>
+          <%- mascota.usuarioId %>
+          <a href="<%- editPetPath(mascota) %>">Adoptar</a>
+
+      </div>
+
+
+
+<% })}; %>
+<a href="/">Volver</a>

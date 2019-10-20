@@ -1,0 +1,104 @@
+.flip-card {
+  background-color: transparent;
+  width: 100;
+  height: 60px;
+  border: 1px solid rgba(105, 191, 184, 0.5);
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front-transmitter, .flip-card-front-receiver, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front-transmitter {
+  background-color: #D3D3D3;
+  color: black;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.flip-card-front-receiver {
+  background-color: #69BFB8;
+  color: black;
+  text-align: right;
+  width: 97%;
+  padding-right: 40px;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: #bbb;
+  color: white;
+  text-align: right;
+  transform: rotateY(180deg);
+}
+
+
+.card {
+  box-shadow: 0 1px 100px 0 rgba(0, 0, 0, 1);
+  width: 100%;
+  text-align: center;
+  min-width: 700px;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: 30px;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  height: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+div.scroll {
+  background-color: lightgray;
+  height: 400px;
+  overflow-x: hidden;
+}
+
+.bubble {
+  display: inline-block;
+}
+
+.hour {
+  font-size: 10px;
+}

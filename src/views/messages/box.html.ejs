@@ -1,0 +1,55 @@
+<h2>Chat con <%- user.username %></h2>
+<% if (!messageList.length) { %>
+  <p>No hay mensajes todavía</p>
+<% } else { %>
+  <div class="scroll">
+   <% messageList.forEach((message) => { %>
+    <div id=container3>
+      <div class="flip-card">
+       <div class="flip-card-inner">
+         <% if (message.transmitter_id == user.id) { %>
+           <div class="flip-card-front-transmitter">
+         <% } else { %>
+           <div class="flip-card-front-receiver">
+         <% } %>
+             <p class="bubble">
+               <%- message.body %>
+             </p>
+             <p class="bubble hour">
+               <%- (message.createdAt.getHours()<10?'0':'') + message.createdAt.getHours() %>
+               :
+               <%- (message.createdAt.getMinutes()<10?'0':'') + message.createdAt.getMinutes() %>
+             </p>
+            </div>
+         <div class="flip-card-back">
+           <form action="<%- deleteMessagePath(message) %>" method="POST">
+             <input type="hidden" name="_method" value="delete" />
+             <input type="submit" value="Delete" />
+           </form>
+         </div>
+       </div>
+     </div>
+    </div>
+   <% }) %>
+  </div>
+<% } %>
+<form action="<%= submitMessagePath(user) %>" method="post" id="container2">
+  <% if (!mensaje.isNewRecord) { %>
+    <input type="hidden" name="_method" value="patch" />
+  <% } %>
+  <div class="field">
+    <input type="hidden" name="transmitter_id" value="<%- currentUser.id %>" />
+  </div>
+  <div class="field">
+    <input type="hidden" name="receiver_id" value="<%- user.id %>" />
+  </div>
+  <div class="field">
+    <label for="body">Mensaje:</label>
+    <input type="text" name="body" placeholder="Escribe aquí..." />
+  </div>
+  <div id= "crear" class="field">
+    <input type="submit" name="create" value="Enviar" />
+  </div>
+</form>
+
+<a href="/mensaje">Volver a Mensajes</a>

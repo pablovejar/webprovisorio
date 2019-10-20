@@ -1,0 +1,25 @@
+<h2>Selecciona tu usuario</h2>
+<% if (!userList.length) { %>
+    <p>No results</p>
+  <% } else { %>
+        <div class="selection">
+            <label for="usuarioId">Número de usuario</label>
+
+            <select name="usuarioId" id="dropdown">
+            <% userList.forEach((usuario) => { %>
+                <script>console.log("estoyaqui")</script>
+
+                <option value="<%= usuario.id %>"> <%- usuario.id %> </option>
+            <% }); %>
+            </select>
+            <form action="<%- adoptPetPath(usuario.id) %>" method="POST">
+                <input type="submit" value="Enviar" />
+            </form>
+        </div>
+
+  
+      
+  
+  <% }; %>
+  
+  

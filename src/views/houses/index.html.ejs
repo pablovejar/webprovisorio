@@ -1,0 +1,41 @@
+<h2>Hogares</h2>
+<% if (!housesList.length) { %>
+  <p>No hay resultados</p>
+<% } else { %>
+
+<div class="container">
+  <div class= "cards" >
+    <% housesList.forEach((hogares) => { %>
+      <div class="card">
+        <img src="http://lorempixel.com/900/400/city" alt="houses-icon" style='width: 80%'>
+        <h1><%- hogares.address %> </h1>
+        <p>Espacio Disponible: <%- hogares.space %></p>
+        <p>Lugar: <%- hogares.city %> ,&nbsp; <%- hogares.country %> </p>
+        <p>Es de: <%- userList.find(x => x.id === hogares.usuarioId).name %></p>
+        <% if (currentUser.is_admin) { %>
+          <a class="button" href="<%- editHousePath(hogares) %>" >Editar</a>
+          <form action="<%- deleteHousePath(hogares) %>" method="POST">
+              <input type="hidden" name="_method" value="delete" />
+              <input type="submit" class="submit" value="Delete" />
+          </form>
+        <% } else if (currentUser.id == hogares.usuarioId) {%>
+          <h3>Mi hogar</h3>
+          <a class="button" href="<%- editHousePath(hogares) %>" >Editar mi Hogar</a>
+          <form action="<%- deleteHousePath(hogares) %>" method="POST">
+            <input type="hidden" name="_method" value="delete" />
+            <input type="submit" class="button" value="Borrar Hogar" />
+          </form>
+        <% } else { %>
+          <a class="button" href="/mensaje/<%-hogares.usuarioId %>/box">Contactar Dueño</a>
+        <% } %>
+      </div>
+      <br>
+    <% }) %>
+      <div class="card">
+          <img src="http://lorempixel.com/900/400/animals/8" alt="cute-dog-icon" style='width: 80%'>
+          <a class="button" href="<%- newHousePath %>">Agregar Nuevo Hogar</a>
+      </divv>
+    </div>
+</div>  
+<% } %>
+

@@ -1,0 +1,36 @@
+<div>
+  <% if (locals.errors) { %>
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+      No puedes enviar un mensaje vacío!
+    </div>
+    <% } %>
+    <form action="<%= submitMessagePath %>" method="post" id="container2">
+      <% if (!mensaje.isNewRecord) { %>
+        <input type="hidden" name="_method" value="patch" />
+      <% } %>
+      <div class="field">
+        <label for="transmitter_id">Emisor</label>
+        <select name="transmitter_id" id="dropdown">
+          <% userList.forEach((usuario) => {%>
+            <option value="<%= usuario.id %>"> <%- usuario.username %> </option>
+          <% });%>
+        </select>
+      </div>
+      <div class="field">
+        <label for="receiver_id">Receptor</label>
+        <select name="receiver_id" id="dropdown">
+          <% userList.forEach((usuario) => {%>
+            <option value="<%= usuario.id %>"> <%- usuario.username %> </option>
+          <% });%>
+        </select>
+      </div>
+      <div class="field">
+        <label for="body">Mensaje</label>
+        <input type="text" name="body" placeholder="Escribe aquí..." />
+      </div>
+      <div id= "crear" class="field">
+        <input type="submit" name="create" value="Enviar" />
+      </div>
+    </form>
+  </div>

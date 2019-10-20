@@ -1,0 +1,77 @@
+<div>
+  <% if (locals.errors) { 
+    console.log(locals.errors);%>
+    <% errors.forEach(error => { %>
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <%= error.message %>
+      </div>
+    <% }); %>
+  <% } %>
+    <form action="<%= submitHousePath %>" method="post" name = 'HogaresForm' onsubmit = "return(Validate());">
+      <% if (!hogares.isNewRecord) { %>
+        <input type="hidden" name="_method" value="patch" />
+      <% } %>
+      <div class="field">
+        <label for="address">Direccion</label>
+        <input type="text" name="address" value="<%= hogares.address %>" placeholder="Av Brasil 123"/>
+        <div class = input-error id="address_error"></div>
+      </div>
+      <div class="field">
+        <label for="space">Espacio Disponible en Metros Cuadrados</label>
+        <input type="text" name="space" value="<%= hogares.space %>" placeholder="150"/>
+        <div class = input-error id="space_error"></div>
+      </div>
+      <div class="field">
+        <label for="country">Pais</label>
+        <input type="text" name="country" value= "<%= hogares.country %>" placeholder="Brasil"/>
+        <div class = input-error id="country_error"></div>
+      </div>
+      <div class="field">
+        <label for="city">Ciudad</label>
+        <input type="text" name="city" value= "<%= hogares.city %>" placeholder="Rio de Janeiro"/>
+        <div class = input-error id="city_error"></div>
+      </div>
+      <div class="field">
+        <label for="description">Descripcion del Hogar</label>
+        <textarea type="text" name="description"><%= hogares.description %></textarea>
+        <div class = input-error id="description_error"></div>
+      </div>
+
+      <div>
+        <div class='field'>
+        <label for="Fecha">Fecha Limite de hogar temporal</label>
+        <input type="date" name="limit_date" value= "<%= hogares.limit_date %>"/>
+        </div>
+        <div class='field'></div>
+        <label for="Fecha">Animales de Preferencia</label>
+        <input type="text" name="preference" value= "<%= hogares.preference %>"/>
+        </div>
+      </div>
+    </br>
+
+
+      <% if (currentUser) { %>
+        <div class='field'>
+          <input type="hidden" name="usuarioId" value= "<%= currentUser.id %>"/>
+        </div>
+      <% } else if (currentUser.is_admin) { %>
+      <div class='field'>
+        <label>Id Usuario</label>
+        <select name='usuarioId' id='dropdown'>
+          <% userList.forEach((usuario) => { %>
+            <option value='<%= usuario.id %>'> <%= usuario.id %> </option>
+          <%}); %>
+        </select>
+      </div>
+      <% } %>
+
+      <div class="field">
+        <% if (hogares.isNewRecord) { %>
+          <input type="submit" name="create" value="Create" class='confirmation-button'/>
+        <% } else { %>
+          <input type="submit" name="update" value="Update" class='confirmation-button'/>
+        <% } %>
+      </div>
+    </form>
+  </div>

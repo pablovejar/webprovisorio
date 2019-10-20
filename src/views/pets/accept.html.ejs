@@ -1,0 +1,9 @@
+<h1>Estas seguro de aceptar la adopcion?</h1>
+<form action="<%- acceptPetPath %>" method="post" >
+    <input type="hidden" name="_method" value="patch"/>
+    <input type="hidden" name="usuarioId" value="<%= request.usuarioId %> ">
+    <input type="hidden" name="mascotaId" value="<%= request.mascotaId %> ">
+    <input type="hidden" name="adopterId" value="<%= request.adopterId %> ">
+    <input type="hidden" name="status" value="true">
+    <input type="submit" name="update" value="Aceptar Adopción">
+</form>

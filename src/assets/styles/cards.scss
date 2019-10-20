@@ -1,0 +1,75 @@
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.242);
+    text-align: center;
+    background-color: rgba(35, 64, 61, 0.8);
+    font-family: "Lucida Sans Unicode", sans-serif;
+    color: white;
+    max-width: calc(40% - 10px);
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    flex-basis: 1 0 calc(20% - 10px);
+    flex-direction: row-reverse;
+
+  }
+
+  .card img {
+    width: 80%;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: -20px;
+    margin-left: 10px;
+  }
+  .cards::after {
+    content: "";
+    flex: auto;
+  }
+
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  .submit {
+    color: black;
+    font-size: 15px;
+    outline: 0;
+    background-color: rgb(159, 143, 143);
+    display: inline-block;
+    padding: 0px;
+    text-align: center;
+    width: 50%;
+    margin-bottom: 10px;
+    font-family: "Lucida Sans Unicode", sans-serif;
+  }
+
+
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 10px;
+    padding-right: 0px;
+    color: white;
+    background-color: rgb(159, 143, 143);
+    text-align: center;
+    cursor: pointer;
+    width: 90%;
+    font-size: 18px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: rgb(35, 64, 61);
+    font-weight: 500;
+  }
+
+  button:hover, a:hover {
+    opacity: 0.7;
+  }

@@ -1,0 +1,51 @@
+.profile-header {
+  display: inline;
+}
+
+#current-profile {
+  height: 40%;
+  width: 40%;
+  border: 5px;
+  border-radius: 12px;
+  border-style: solid;
+  border-color: #90dfd3;
+}
+
+h1 {
+  display: inline-block;
+  padding-left: 5%;
+  margin-bottom: 10%;
+  vertical-align: top;
+}
+
+.profile-data {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 10%;
+}
+
+.user-data {
+  display: list-item;
+}
+
+.user-atribute {
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 10%;
+}
+
+hr {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: #90dfd3;
+}
+
+.material-icons {
+  display: block;
+  text-align: right;
+}
+
+.material-icon {
+  display: inline;
+  color: #47807B;
+}

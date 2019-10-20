@@ -1,0 +1,41 @@
+<h1>Solicitudes de Adopción</h1> 
+<br>
+<br>
+<br>
+<h2><%- usuario.name %>, estas son las solicitudes hechas por otros usuarios:</h2>
+<br>
+<% if (!PersonalRequestList1) { %>
+    <h1>Nadie ha realizado una solicitud de adopción a tus publicaciones.</h1>
+<% } else { 
+    PersonalRequestList1.forEach((element) => { %>
+        <h1>El usuario <%- element[0][0].name %> ha realizado una solicitud de adopción a tu mascota <%- element[1][0].name %>. </h1>
+        <a href="<%- acceptPetRequest(element[2]) %>">Aceptar Adopción</a>
+<% })} %>
+
+<% if (!PersonalAcceptedRequestList1) { %>
+    <p>No has aceptado ninguna solicitud de adopción</p>
+<% } else { 
+    PersonalAcceptedRequestList1.forEach((element) => { %>
+        <h1>El usuario <%- element[0][0].name %> ahora es dueño/a de <%- element[1][0].name %>. </h1>
+        <p>ACEPTAR</p>
+<% })} %>
+
+<% if (!RequestDoneList1) { %>
+    <h1>No han aceptado ninguna solicitud de adopción realizada por ti</h1>
+<% } else { 
+    RequestDoneList1.forEach((element) => { %>
+        <h1>El usuario <%- element[0][0].name %> debe aceptar tu solicitud de adopcion para la mascota: <%- element[1][0].name %>. </h1>
+        <a href= "/">ok</a>
+<% })} %>
+
+<% if (!RequestDoneAcceptedList1) { %>
+    <p>No han aceptado ninguna solicitud de adopción realizada por ti</p>
+<% } else { 
+    RequestDoneAcceptedList1.forEach((element) => { %>
+        <h1>El usuario <%- element[0][0].name %> ha aceptado tu solicitud de adopcion para la mascota: <%- element[1][0].name %>. </h1>
+        <p>ACEPTAR</p>
+<% })} %>
+
+ 
+
+    

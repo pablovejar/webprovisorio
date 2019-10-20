@@ -1,0 +1,27 @@
+<h2>Mascotas</h2>
+<% if (!petList.length) { %>
+  <p>No hay resultados</p>
+<% } else { %>
+
+  <div class="container">
+    <div class="cards">
+    <% petList.forEach((mascota) => { %>
+        <div class="card">
+          <h1><%- mascota.name %></h1>
+          <% if (currentUser.id == mascota.usuarioId) {%>
+            <a href="<%- editPetPath(mascota) %>">Edit</a>
+            <form action="<%- deletePetPath(mascota) %>" method="POST">
+              <input type="hidden" name="_method" value="delete" />
+              <input type="submit" value="Delete" />
+            </form>
+          <% } 
+          else {%>
+            <a href="<%- adoptPetPath(mascota) %>"> Solicitar Adopción</a>
+         <% }%>
+        </div>
+      </div>
+    <% })}; %>
+  </div>
+
+
+<a href="<%- newPetPath %>">Nueva mascota</a>

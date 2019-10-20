@@ -1,0 +1,93 @@
+/* Navbar container */
+.navbar {
+    overflow: hidden;
+    background-color: #47807B;
+    font-family: "Lucida Sans Unicode", sans-serif;
+    width: 100%;
+  }
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  padding: 22px 40px;
+  text-decoration: none;
+  font-weight: normal;
+}
+
+#nav-logo img {
+  height: 45px;
+}
+
+#nav-logo {
+  font-weight: bold;
+  padding: 7px 40px;
+}
+
+#new {
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 22px 40px;
+  text-decoration: none;
+}
+
+#end {
+  float: right;
+  padding: 22px 40px;
+  font-weight: bold;
+  display: inline-block;
+  color: white;
+  /*cursor: pointer;*/
+  /*background-color: #3B6B67;*/
+}
+
+#end-username{
+  color: #182B29;
+  display: inline-block;
+  margin: 0;
+}
+
+.dropdown {
+  display: inline-block;
+  float: right;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #5AA39D;
+  min-width: 160px;
+  box-shadow: 16px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 22px 40px;
+  text-decoration: none;
+  display: inline;
+}
+
+.dropdown-content a:hover {
+  background-color: #5AA39D;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover #end {
+  background-color: #47807B;
+}
+
+.form-control {
+  font-size: 18px;
+  padding: 0;
+  color: white;
+  border: 0;
+  background-color: rgba(0,0,0,0);
+  font-family: "Lucida Sans Unicode", sans-serif;
+}

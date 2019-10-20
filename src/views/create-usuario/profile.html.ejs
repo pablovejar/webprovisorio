@@ -1,0 +1,34 @@
+<% if (!currentUser) { %>
+  <p>No has iniciado sesión</p>
+<% } else { %>
+  <% if (currentUser.id == usuario.id) { %>
+    <div class="material-icons">
+      <a href="/usuario/<%- currentUser.id %>/edit">
+        <div class="material-icon">edit</div>
+      </a>
+      <a href=<%- deleteUserPath(currentUser) %>">
+        <div class="material-icon">delete</div>
+      </a>
+    </div>
+  <% } %>
+  <div class="profile-header">
+    <img id="current-profile" src="https://fer-uig.glitch.me?uuid=<%-usuario.id%>" alt="user-icon">
+  </div>
+  <div class="profile-data">
+    <h1> <%- usuario.username %> </h1>
+    <div class="user-data">
+      Nombre: <div class="user-atribute"> <%- usuario.name %> </div>
+    </div>
+    <div class="user-data">
+      Email: <div class="user-atribute"> <%- usuario.email %> </div>
+    </div>
+    <div class="user-data">
+      Teléfono: <div class="user-atribute"> <%- usuario.telefono %> </div>
+    </div>
+    <div class="user-data">
+      Nacionalidad: <div class="user-atribute"> <%- usuario.nationality %> </div>
+    </div>
+  </div>
+  <hr>
+  <%- include('publications') %>
+<% } %>

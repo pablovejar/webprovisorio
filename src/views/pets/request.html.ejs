@@ -1,0 +1,27 @@
+<h2>Solicitud de Adopción </h2>
+
+<div class="container">
+    <div class="cards">
+        <div class="card">
+            <h1 class="title"> <%- mascota[0].name %> </h1>
+            <p><%- mascota[0].description %></p>
+            <p>Dueño/a: <%- usuario[0].name %> </p>
+            <% console.log("falle 1")%>
+            <form action="<%= confirmRequestPath %>" method="post" >
+                <input type="hidden" name="usuarioId" value="<%= usuario[0].id %> ">
+                <% console.log("falle 2", usuario[0].id)%>
+                <input type="hidden" name="mascotaId" value="<%= mascota[0].id %> ">
+                <% console.log("falle 3", mascota[0].id)%>
+                <input type="hidden" name="adopterId" value="<%= adopter.id %> ">
+                <% console.log("falle 4", adopter.id)%>
+                <input type="hidden" name="status" value="false">
+                <input type="submit" name="create" value="Solicitar Adopción">
+            </form>
+        </div>
+
+    </div>
+
+
+
+
+</div>

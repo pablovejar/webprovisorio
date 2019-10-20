@@ -1,0 +1,33 @@
+<h2>Publicaciones</h2> 
+<% if (!PetUserList.length) { %>
+  <p>No results</p>
+<% } else { %>
+  <table  id="create-list">
+    <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Sexo</th>
+          <th>Edad</th>
+          <th>País</th>
+          <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% PetUserList.forEach((mascota) => { %>
+        <tr>
+          <td><%- mascota.name %></td>
+          <td><%- mascota.gender %></td>
+          <td><%- mascota.age %></td>
+          <td><%- mascota.country%></td>
+          <td><%- mascota.description %></td>
+          <td>
+            <form action="<%= deletePetPath(mascota) %>" method="POST">
+              <input type="hidden" name="_method" value="delete" />
+              <input type="submit" value="Delete" />
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+<% } %>

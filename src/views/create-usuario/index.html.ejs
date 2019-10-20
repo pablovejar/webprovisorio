@@ -1,0 +1,36 @@
+<h2>Usuarios</h2>
+
+<% if (!userList.length) { %>
+  <p>No hay resultados</p>
+<% } else { %>
+
+  <div class="container">
+    <div class= "cards" >
+    <% userList.forEach((usuario) => {
+      if (!usuario.is_admin) {%>
+        <div class="card button" href="<%- viewUserPath(usuario) %>">
+          <img class="img-profile" src="https://fer-uig.glitch.me?uuid=<%-usuario.id%>" alt="user-icon">
+          <h1><%- usuario.name %> </h1>
+          <p class="title"><%- usuario.email %></p>
+          <p>Espacio Disponible: <%- usuario.space %> </p>
+          <% if (currentUser.is_admin) { %>
+            <a class="button" href="<%- editUserPath(usuario) %>" >Editar</a>
+            <a class="button" href="<%- getPetPerUserPath(usuario) %>">Ver publicaciones</a>
+            <form action="<%- deleteUserPath(usuario) %>" method="POST">
+                <input type="hidden" name="_method" value="delete" />
+                <input type="submit" class="submit" value="Delete" />
+            </form>
+          <% } else if (currentUser.id == usuario.id) {%>
+            <a class="button" href="<%- getPetPerUserPath(usuario) %>">Mi perfil</a>
+            <% } else { %>
+              <a class="button" href="<%- getPetPerUserPath(usuario) %>">Ver publicaciones</a>
+              <a class="button" href="/mensaje/<%-usuario.id %>/box">Contactar</a>
+              <%
+                  }} %>
+        </div>
+        <br>
+      <% }) %>
+      </div>
+  </div>
+<% } %>
+

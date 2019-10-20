@@ -1,0 +1,13 @@
+<h2>Mensajes</h2>
+<% if (!userList.length) { %>
+  <p>No tienes mensajes todavía</p>
+<% } else { %>
+  <% userList.forEach((user) => { %>
+    <div class="card">
+      <h1><%- user.username %></h1>
+      <form action="<%- openMessageBoxPath(user) %>" method="GET">
+        <input type="submit" value="Enviar mensaje" />
+      </form>
+    </div>
+  <% }) %>
+<% } %>
